@@ -1,4 +1,13 @@
 document.getElementById('print').addEventListener('click', () => window.print());
+document.querySelectorAll('[data-media]').forEach(button => {
+  button.addEventListener('click', () => {
+    const showAI = button.dataset.media === 'ai';
+    document.getElementById('poco-arm').hidden = showAI;
+    document.getElementById('poco-ai').hidden = !showAI;
+    document.querySelectorAll('[data-media]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    if (!showAI) document.getElementById('poco-video').pause();
+  });
+});
 const links = [...document.querySelectorAll('nav a')];
 const targets = [...document.querySelectorAll('#intro, .project, #profile')];
 if ('IntersectionObserver' in window) {
