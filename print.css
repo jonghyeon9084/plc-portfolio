@@ -1,0 +1,163 @@
+/* A single portrait print system, independent of screen and mobile breakpoints. */
+@page {
+  size: A4 portrait;
+  margin: 14mm 13mm 16mm;
+  @top-left { content: 'LEE JONGHYEON'; font: 7pt Arial, sans-serif; letter-spacing: 1pt; color: #737373; }
+  @top-right { content: 'PLC / AUTOMATION'; font: 7pt Arial, sans-serif; letter-spacing: 1pt; color: #737373; }
+  @bottom-right { content: counter(page) ' / ' counter(pages); font: 8pt Arial, sans-serif; color: #303030; }
+}
+@page :first { @top-left { content: none; } @top-right { content: none; } }
+html { scroll-behavior: auto; }
+body { background: #ffffff; font-size: 9pt; line-height: 1.55; overflow: visible; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+main { width: auto; max-width: none; margin: 0; padding: 0; }
+.site-header, .skip, #work, .hero-actions, .intro-bottom, .back-top, .zoom-label, dialog, video, iframe { display: none !important; }
+.sheet, .project-page, .project-page + .project-page, .profile { height: auto; min-height: 0; padding: 0; margin: 0; border: 0; overflow: visible; break-before: page; break-after: auto; }
+.project-section, .project-phase { padding: 0; margin: 0; border: 0; break-before: auto; }
+.intro { display: grid; grid-template-columns: 1fr 50mm; gap: 10mm; break-before: auto; padding-top: 15mm; }
+.intro h1 { font-size: 30pt; line-height: 1.3; letter-spacing: -1pt; }
+.intro-text { font-size: 13pt; }.intro-detail { font-size: 10pt; }
+.portrait-panel { display: block; width: 48mm; max-width: none; }
+.portrait { width: 48mm; height: auto; max-height: 65mm; }
+.portrait-caption strong { font-size: 12pt; }.portrait-caption small { font-size: 9pt; }
+/* Profile follows the compact introduction on the first page. */
+.profile { break-before: auto; margin-top: 10mm; }
+.profile > .eyebrow, .contact-heading { display: none; }
+.profile-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 9mm; padding-top: 5mm; }
+.profile-grid h2 { font-size: 18pt; }.profile-grid > div > p:not(.profile-title), .profile-title { font-size: 9pt; }
+.profile-facts > div { font-size: 8pt; padding: 2mm 0; grid-template-columns: 15mm 1fr; }
+.contact-email { font-size: 10pt; margin-top: 5mm; }.text-link { font-size: 9pt; }
+.skills { display: grid; grid-template-columns: repeat(3,1fr); gap: 5mm; padding: 4mm 0; margin-top: 5mm; }
+.skills b { font-size: 7pt; }.skills p { font-size: 8pt; }
+.page-top { margin-bottom: 3mm; }.eyebrow, .page-count { font-size: 7pt; letter-spacing: .6pt; }
+.project-heading { display: flex; gap: 5mm; }.period { font-size: 8pt; margin: 0; white-space: nowrap; }
+h2 { font-size: 21pt; line-height: 1.3; margin: 0 0 4mm; letter-spacing: -.8pt; break-after: avoid; }
+h3 { font-size: 11pt; line-height: 1.4; margin: 0 0 3mm; break-after: avoid; }
+p { margin: 0 0 3mm; orphans: 3; widows: 3; }
+.lead, .two-col p { font-size: 9pt; line-height: 1.65; margin-bottom: 4mm; }
+.two-col { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 7mm; margin: 5mm 0; }
+.two-col > div { margin-bottom: 0; min-width: 0; }
+.role-list > li { margin-bottom: 3mm; gap: 3mm; }.role-list strong { font-size: 9pt; }.role-list p { margin: 1mm 0 0; }
+.architecture, .status-panel, .editorial-panel { padding: 4mm; border-radius: 2mm; }
+.arch-host { padding: 3mm; }.arch-pair > div { padding: 2mm; }.arch-pair span, .arch-host span { font-size: 8pt; }
+.arch-connector { padding: 2mm 0; font-size: 7pt; }.arch-next { padding: 2mm; margin-top: 2mm; font-size: 8pt; }
+.mini-label { font-size: 7pt !important; margin-bottom: 3mm !important; }
+.note { font-size: 7.5pt !important; line-height: 1.5 !important; margin-top: 2mm !important; }
+.project-meta { gap: 4mm; padding: 3mm 0; }.project-meta strong { font-size: 8pt; }.project-meta span { font-size: 7pt; }
+.gallery-figure, .video-figure, .product-photo, .architecture, .status-panel, .result-grid, .insight, table, .project-meta, .page-footer, .media-gallery { break-inside: avoid; }
+.gallery-figure { margin: 3mm 0; }.zoom-image img { height: auto; max-height: 48mm; width: 100%; object-fit: contain; aspect-ratio: auto; transform: none; }
+.full-bleed img { max-height: 43mm; }.product-photo, .plc-photo { padding: 3mm; }.product-photo img, .stm-photo img { height: 78mm; }
+.media-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 4mm; margin: 4mm 0; }
+.media-gallery.three-up { grid-template-columns: repeat(3,minmax(0,1fr)); }.three-up > figure:last-child { grid-column: auto; max-width: none; }
+.media-gallery img { max-height: 35mm; }.media-gallery figure { margin: 0; }
+.video-figure { margin: 4mm 0; }.media-topline { padding: 2mm 0; font-size: 7pt; }.media-topline span:first-child { font-size: 7pt; }
+.print-video-poster { display: block; width: 100%; height: 38mm; object-fit: contain; background: #f2f2f2; }
+figcaption, .video-figure figcaption, .gallery-figure figcaption { font-size: 7pt; line-height: 1.5; margin: 2mm 0 0; }
+.video-figure figcaption { display: flex; gap: 4mm; }.video-figure figcaption a { font-size: 7pt; }
+.media-story { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; margin: 5mm 0; }.media-story img { max-height: 50mm; }
+.media-story h3 { font-size: 15pt; }.media-story p:not(.eyebrow) { font-size: 9pt; }
+.page-footer { font-size: 7pt; padding-top: 3mm; margin-top: 4mm; gap: 4mm; }.tags { gap: 1mm; }.tags span { font-size: 6.5pt; padding: 1mm 2mm; }.footer-links { gap: 3mm; }
+.metric { padding: 4mm; margin-top: 4mm; }.metric > strong { font-size: 18pt; }.metric p { font-size: 8pt; }
+.status-panel > div { padding: 3mm 0; }.status-panel p { font-size: 8pt; }.state { font-size: 7pt; }
+.insight { display: flex; gap: 4mm; padding: 3mm 4mm; margin: 4mm 0; }.insight p { font-size: 8pt; }.insight strong { font-size: 8pt; }
+.step-flow { margin: 0 0 4mm; }.step-flow > span { font-size: 8pt; padding: 2mm; }
+.control-summary { margin: 0 0 4mm; padding: 2mm; }.control-summary > span { font-size: 8pt; padding: 1mm; }
+.feature-grid > div { padding: 3mm; }.feature-grid span { font-size: 9pt; }.feature-grid b { font-size: 7pt; }
+.editorial-panel h3 { font-size: 14pt; }.case-line { padding: 3mm 0; gap: 3mm; }.case-line p { font-size: 9pt !important; }
+.numbered { margin: 0; }.numbered li { margin-bottom: 3mm; }.numbered strong { font-size: 9pt; }
+.pipeline-card { padding: 4mm; }.pipeline-card b { font-size: 10pt; }.pipeline-card span { font-size: 8pt; }
+.result-grid > div { padding: 4mm 3mm; }.result-grid strong { font-size: 19pt; }.result-grid span { font-size: 8pt; }.result-grid > div > small { font-size: 7pt; }
+.award { font-size: 9pt; margin-bottom: 3mm; }.plain-list { font-size: 9pt; }.plain-list li { margin-bottom: 2mm; }
+table { margin: 3mm 0; }th, td { padding: 2mm; font-size: 9pt; }caption { font-size: 8pt; }
+.bar-chart { padding: 4mm; }.bar-chart > div { margin-bottom: 4mm; font-size: 8pt; }.bar-chart strong { font-size: 13pt; }
+.site-footer { font-size: 7pt; padding: 4mm 0 0; margin-top: 5mm; break-inside: avoid; }.site-footer a { display: none; }
+
+/* Editorial typography, consistent page structure, and a compact cover. */
+:root { --ink:#202020; --accent:#303030; --muted:#686868; --line:#dedede; --soft:#f2f2f2; }
+body { color:var(--ink); }
+.project-page, .project-page + .project-page { display:flex; flex-direction:column; min-height:259mm; }
+.project-page > * { flex-shrink:0; }
+.project-page .two-col { flex:0 0 auto; }
+.page-top { padding:3mm 0 0; border-top:1.2mm solid var(--ink); margin-bottom:5mm; }
+.page-top .eyebrow { color:var(--accent); font-weight:700; }
+.page-count { color:#737373; font-size:6.5pt; }
+h2 { font-size:23pt; font-weight:800; letter-spacing:-.8pt; }
+h3 { font-weight:700; }
+.page-footer { margin-top:auto; padding-top:3mm; }
+.page-footer .tags span { border:1px solid #e7e7e7; background:white; border-radius:1mm; }
+.print-overview .lead { margin-bottom:3mm; }
+.print-overview .two-col { margin:4mm 0; }
+.full-bleed .zoom-image { background:var(--soft); border-radius:1.5mm; }
+.full-bleed img { height:38mm; max-height:38mm; background:transparent; }
+.project-meta { border-bottom:1px solid var(--line); padding:3mm 0 4mm; }
+.project-meta span { color:var(--accent); }
+.architecture { border:1px solid var(--line); background:var(--soft); }
+.arch-host { border-radius:1mm; }.arch-pair > div { border-top-width:1px; }
+.print-video-poster { height:34mm; border-radius:1.5mm; background:var(--soft); }
+.video-figure { margin:3mm 0 4mm; }
+.media-topline { border-top:1px solid var(--line); padding-top:2mm; }
+.zoom-image { border-radius:1.5mm; }.product-photo,.plc-photo { border-radius:1.5mm; }
+.plc-photo img { height:65mm; object-fit:contain; }
+.print-notes > .two-col { margin:9mm 0 8mm; gap:9mm; }
+.print-notes .two-col p { font-size:10pt; line-height:1.85; }
+.print-notes .case-line p { font-size:10pt !important; }
+.print-notes .note { font-size:8pt !important; line-height:1.7 !important; }
+.print-notes .insight { padding:5mm; margin:5mm 0 9mm; background:#f3f3f3; border-left:1mm solid var(--accent); }
+.print-notes .insight p { font-size:9pt; line-height:1.8; }
+.print-notes .insight strong { min-width:24mm; font-size:8pt; }
+.print-notes h3 { font-size:12pt; margin-bottom:4mm; }
+.print-notes .step-flow > span { padding:4mm 2mm; border-radius:1mm; }
+.print-notes .vertical { margin:6mm 0; }
+.print-notes .metric { margin-top:7mm; padding:5mm; border-radius:1.5mm; }
+.print-notes .metric > strong { font-size:22pt; }
+.print-notes .metric p { font-size:9pt; line-height:1.8; }
+.print-notes .status-panel { padding:5mm; }
+.print-notes .status-panel > div { padding:5mm 0; }
+.print-notes .status-panel p { font-size:9pt; }
+.print-notes .result-grid > div { padding:7mm 3mm; }
+.print-notes .result-grid strong { font-size:25pt; }
+.print-notes .bar-chart { padding:6mm; }
+.print-notes .bar-chart > div { margin-bottom:6mm; }
+.print-notes .bar-chart strong { font-size:17pt; }
+.print-notes .media-story { margin:5mm 0; }
+.print-notes .media-story h3 { font-size:16pt; }
+.print-notes .media-story p { font-size:9pt; }
+.print-notes .pipeline-card { padding:6mm; gap:3mm; }
+.print-notes .pipeline-card b { font-size:11pt; padding:2mm; }
+.print-notes .numbered li { margin-bottom:5mm; }
+.intro { padding-top:6mm; grid-template-columns:minmax(0,1fr) 42mm; gap:9mm; align-items:center; }
+.intro-copy { padding-top:0; }
+.intro .eyebrow { font-size:8pt; letter-spacing:1pt; }
+.intro h1 { margin:8mm 0 6mm; font-size:38pt; letter-spacing:-1.5pt; line-height:1.35; }
+.intro h1 span { display:inline-block; font-size:22pt; letter-spacing:-.6pt; }
+.intro-tags span { font-size:8pt; }
+.portrait-panel { width:42mm; align-self:center; }
+.portrait-top { display:none; }
+.portrait { width:42mm; height:auto; max-height:54mm; margin:0; border-radius:1.5mm; }
+.portrait-caption { padding:3mm 0; border:0; }
+.portrait-caption strong { font-size:10pt; }.portrait-caption small { font-size:7pt; margin-left:2mm; }
+.portrait-caption > span { font-size:6.5pt; letter-spacing:0; }
+.profile { margin-top:9mm; }
+.profile-grid { border-top:1.2mm solid var(--ink); padding-top:6mm; grid-template-columns:.9fr 1.1fr; gap:9mm; }
+.profile-grid > div > h2 { font-size:17pt; margin-bottom:1mm; }
+.profile-grid > div > p:not(.profile-title) { font-size:9pt; line-height:1.8; }
+.profile-facts > div { padding:3mm 0; font-size:8.5pt; line-height:1.7; }
+.profile-title { margin-bottom:5mm; }.contact-email { font-size:9pt; }
+.skills { margin-top:6mm; padding:4mm 0; gap:5mm; }
+.skills > div { border-left:.6mm solid var(--accent); padding-left:3mm; }
+.skills p { line-height:1.7; }.skills b { font-size:7pt; }
+.print-project-list { display:block; margin-top:6mm; border-top:1px solid var(--line); padding-top:4mm; }
+.print-project-list > p { font:7pt Arial,sans-serif; letter-spacing:1.2pt; color:var(--muted); margin:0 0 3mm; }
+.print-project-list > a { display:flex; align-items:baseline; gap:5mm; padding:2mm 0; border-bottom:1px solid #f0f0f0; font-size:9pt; }
+.print-project-list b { font:8pt Arial,sans-serif; color:var(--accent); }
+.print-project-list small { margin-left:auto; font:8pt Arial,sans-serif; color:var(--muted); }
+.site-footer { display:none; }
+
+/* Keep dense media pages within the portrait page, including their footers. */
+.page-top { break-inside:avoid; }
+.featured .full-bleed img { height:30mm; max-height:30mm; }
+.featured .print-video-poster { height:28mm; }
+.featured .project-meta { padding-bottom:3mm; }
+.print-notes:has(.media-story) > .two-col { margin:5mm 0 4mm; }
+.print-notes:has(.media-story) .numbered li { margin-bottom:3mm; }
+.print-notes:has(.media-story) .pipeline-card { gap:2mm; padding:5mm; }
+.print-notes:has(.media-story) .insight { margin-bottom:4mm; }

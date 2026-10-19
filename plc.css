@@ -1,0 +1,17 @@
+/* PLC content uses the same visual system as the robotics portfolio. */
+.intro h1 span { font-size: .72em; line-height: 1.4; }
+.intro-detail { max-width: 480px; }
+.anchor-alias { display: block; height: 0; scroll-margin-top: 112px; }
+#plc-results, #plc-demo { scroll-margin-top: 120px; }
+.project-index a.active, .site-header nav a.active { text-decoration: underline; text-underline-offset: 7px; }
+@media screen and (max-width: 540px) {
+  .intro h1 span { font-size: .77em; }
+  .intro-detail br { display: none; }
+  .project-heading { flex-wrap: wrap; gap: 0; }
+}
+@media print {
+  .intro h1 span { font-size: 22pt; }
+  .intro-detail { font-size: 9pt; }
+  .project-page, .project-page + .project-page { min-height: 0; }
+  #poco .product-photo img { height: 48mm; }
+}
