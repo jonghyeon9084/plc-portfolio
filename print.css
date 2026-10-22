@@ -1,4 +1,4 @@
-/* A single portrait print system, independent of screen and mobile breakpoints. */
+/* Print-only base styles. Landscape slide layout is defined below. */
 @page {
   size: A4 portrait;
   margin: 14mm 13mm 16mm;
@@ -161,3 +161,95 @@ h3 { font-weight:700; }
 .print-notes:has(.media-story) .numbered li { margin-bottom:3mm; }
 .print-notes:has(.media-story) .pipeline-card { gap:2mm; padding:5mm; }
 .print-notes:has(.media-story) .insight { margin-bottom:4mm; }
+
+/* One complete slide per landscape page. Screen styles remain independent. */
+@page { size: A4 landscape; margin: 12mm 13mm 14mm; }
+html, body { width: auto; margin: 0; padding: 0; }
+body { font-size: 10pt; line-height: 1.5; }
+.anchor-alias { display: none; }
+.sheet, .project-page, .project-page + .project-page, .profile {
+  box-sizing: border-box; height: 182mm; min-height: 0;
+  margin: 0; padding: 0; border: 0; overflow: visible;
+  break-before: page; break-after: auto; break-inside: avoid;
+}
+.intro { break-before: auto; grid-template-columns: 1fr 62mm; gap: 20mm; align-items: center; padding: 12mm 8mm; }
+.intro h1 { font-size: 45pt; line-height: 1.2; margin: 12mm 0 8mm; }
+.intro h1 span { font-size: 29pt; line-height: 1.4; }
+.intro .eyebrow { font-size: 10pt; }
+.intro-detail { font-size: 12pt; max-width: none; }
+.intro-tags { margin-top: 8mm; }.intro-tags span { font-size: 10pt; }
+.portrait-panel { width: 62mm; }.portrait { width: 62mm; max-height: 82mm; }
+.portrait-caption strong { font-size: 14pt; }.portrait-caption small { font-size: 9pt; }
+.portrait-caption > span { font-size: 8pt; }
+.profile { display: flex; flex-direction: column; padding-top: 5mm; }
+.profile > .eyebrow { display: block; margin-bottom: 5mm; }
+.contact-heading { display: flex; margin-bottom: 9mm; }.contact-heading h2 { font-size: 28pt; }.contact-heading p { font-size: 10pt; }
+.profile-grid { grid-template-columns: .9fr 1.1fr; gap: 18mm; padding-top: 7mm; }
+.profile-grid > div > h2 { font-size: 25pt; margin-bottom: 4mm; }
+.profile-grid > div > p:not(.profile-title), .profile-title { font-size: 11pt; line-height: 1.8; }
+.profile-facts > div { font-size: 10pt; padding: 3mm 0; grid-template-columns: 22mm 1fr; }
+.contact-email { font-size: 12pt; }.text-link { font-size: 10pt; }
+.skills { margin-top: auto; padding: 7mm 0 5mm; }.skills b { font-size: 9pt; }.skills p { font-size: 10pt; }
+.project-page, .project-page + .project-page { display: flex; flex-direction: column; }
+.page-top { padding-top: 2mm; margin-bottom: 4mm; }
+.page-top p { margin: 0; }.eyebrow, .page-count { font-size: 8pt; }
+.status.light { font-size: 8pt; padding: 1mm 2mm; }
+.project-heading { align-items: center; }.project-heading h2 { margin-bottom: 3mm; }
+h2 { font-size: 24pt; line-height: 1.25; margin-bottom: 5mm; }
+.project-heading h2 br, .print-notes > h2 br { display: none; }
+.period { font-size: 9pt; }.lead { max-width: none; font-size: 10pt; line-height: 1.6; margin-bottom: 3mm; }
+h3, .print-notes h3 { font-size: 12pt; margin-bottom: 3mm; }
+.two-col, .print-overview .two-col, .print-notes > .two-col { grid-template-columns: 1fr 1fr; gap: 9mm; margin: 4mm 0; }
+.two-col p, .print-notes .two-col p { font-size: 10pt; line-height: 1.6; }
+.role-list > li { margin-bottom: 3mm; }.role-list strong { font-size: 10pt; }.role-list p { margin-bottom: 0; }
+.plain-list { font-size: 10pt; line-height: 1.6; }.plain-list li { margin-bottom: 1.5mm; }
+.product-photo, .plc-photo { margin: 0; padding: 3mm; }
+.plc-photo img { height: 45mm; width: 100%; }.stm-photo img { height: 100mm; width: 100%; }
+.project-page .page-footer { margin-top: auto; padding-top: 2mm; font-size: 8pt; }
+.page-footer .tags span { font-size: 7pt; }
+.video-figure, .gallery-figure, .media-gallery { margin: 0; }
+.print-video-poster { height: 31mm; }.media-topline { padding: 1mm 0; font-size: 7pt; }
+figcaption, .video-figure figcaption, .gallery-figure figcaption { font-size: 7pt; margin-top: 1mm; line-height: 1.4; }
+.insight, .print-notes .insight { padding: 3mm 4mm; margin: 4mm 0; gap: 4mm; }
+.insight p, .print-notes .insight p { font-size: 9pt; line-height: 1.6; }
+.insight strong, .print-notes .insight strong { font-size: 9pt; min-width: 28mm; }
+.print-notes .case-line { padding: 3mm 0; }.print-notes .case-line p { font-size: 10pt !important; line-height: 1.6; }
+.print-notes .bar-chart { padding: 5mm; }.print-notes .bar-chart > div { margin-bottom: 4mm; }
+.print-notes .note { font-size: 8pt !important; line-height: 1.55 !important; }
+.print-notes .metric { margin-top: 4mm; padding: 4mm; }.print-notes .metric > strong { font-size: 20pt; }
+.print-notes .metric p { font-size: 10pt; line-height: 1.6; }
+.print-notes .status-panel { padding: 5mm; }.print-notes .status-panel > div { padding: 4mm 0; }
+.print-notes .status-panel p { font-size: 10pt; line-height: 1.6; }
+.print-notes .step-flow > span { padding: 3mm 2mm; font-size: 9pt; }
+table th, table td { font-size: 10pt; padding: 2mm; }
+
+/* Put the PLC demo beside its HMI gallery, on the same slide as the overview. */
+#plc > .print-overview { display: grid; grid-template-columns: 1fr 2fr; column-gap: 6mm; align-content: start; }
+#plc > .print-overview > * { grid-column: 1 / -1; }
+#plc > .print-overview > .video-figure { grid-column: 1; grid-row: 5; }
+#plc > .print-overview > .media-gallery { grid-column: 2; grid-row: 5; gap: 3mm; }
+#plc > .print-overview .media-gallery img { height: 34mm; max-height: 34mm; }
+#plc > .print-overview > .page-footer { margin-top: 4mm; }
+#plc-results > .gallery-figure { margin-top: auto; }
+#plc-results > .gallery-figure img { height: 28mm; max-height: 28mm; }
+
+/* Keep architecture and both original media panels together without clipping. */
+#factory > .print-overview { display: grid; grid-template-columns: 1fr 1fr; column-gap: 7mm; align-content: start; }
+#factory > .print-overview > * { grid-column: 1 / -1; }
+#factory > .print-overview > .project-meta { grid-row: 4; padding: 2mm 0; }
+#factory > .print-overview > .two-col { grid-row: 5; margin: 3mm 0; }
+#factory > .print-overview > .full-bleed { grid-row: 6; grid-column: 1; }
+#factory > .print-overview > .video-figure { grid-row: 6; grid-column: 2; }
+#factory > .print-overview > .page-footer { grid-row: 7; margin-top: 3mm; }
+#factory .full-bleed img { height: 34mm; max-height: 34mm; }
+#factory .print-video-poster { height: 28mm; }
+#factory .architecture { padding: 3mm; }.arch-host { padding: 2mm; }.arch-connector { padding: 1mm 0; }
+#factory > .print-overview .two-col p { font-size: 9pt; line-height: 1.5; }
+.arch-pair > div { padding: 2mm; }.arch-next { margin-top: 1mm; padding: 2mm; }
+.arch-host strong, .arch-pair b, .arch-next b { font-size: 9pt; }
+#poco .product-photo img { height: 48mm; width: 100%; }
+#poco .video-figure { width: 120mm; margin: 1mm auto 3mm; }
+#poco .print-video-poster { height: 22mm; }
+#poco .two-col { margin: 2mm 0; }
+#poco .insight { margin: 2mm 0; }
+#poco .award { padding: 1mm 3mm; margin-bottom: 2mm; }
